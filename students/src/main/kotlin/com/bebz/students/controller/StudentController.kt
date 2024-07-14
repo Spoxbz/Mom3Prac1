@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/students")
-class StudentController(private val studentService: StudentService) {
+class StudentController(
+    private val studentService: StudentService
+    ) {
 
     @GetMapping
     fun getAllStudents(): ResponseEntity<List<Student>> = ResponseEntity.ok(studentService.findAll())
