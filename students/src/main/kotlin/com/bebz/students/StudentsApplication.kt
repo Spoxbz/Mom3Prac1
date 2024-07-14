@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients
 //Se agrega lo siguiente
 //@EnableDiscoveryClient
 @EnableFeignClients
-@SpringBootApplication /*(scanBasePackages = ["com.bebz.students.feignclients"])*/
+@SpringBootApplication
 class StudentsApplication
 
 fun main(args: Array<String>) {

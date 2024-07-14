@@ -35,11 +35,4 @@ class StudentController(
         studentService.deleteById(id)
         return ResponseEntity.noContent().build()
     }
-
-    // Nuevo endpoint para obtener un estudiante con sus notas
-    @GetMapping("/{id}/with-grades")
-    fun getStudentWithGrades(@PathVariable id: Long): ResponseEntity<Pair<Student, List<Grade>>> {
-        val studentWithGrades = studentService.getStudentWithGrades(id) ?: return ResponseEntity.notFound().build()
-        return ResponseEntity.ok(studentWithGrades)
-    }
 }

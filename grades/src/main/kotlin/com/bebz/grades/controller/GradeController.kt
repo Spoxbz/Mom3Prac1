@@ -33,11 +33,4 @@ class GradeController(private val gradeService: GradeService) {
         gradeService.deleteById(id)
         return ResponseEntity.noContent().build()
     }
-
-    // Agregado para comunicar con students
-    /*@GetMapping("/student/{studentId}")
-    fun getGradesByStudentId(@PathVariable studentId: Long): ResponseEntity<List<Grade>> {
-        val grades = gradeService.findByStudentId(studentId)
-        return ResponseEntity.ok(grades)
-    }*/
 }
