@@ -1,5 +1,6 @@
 package com.bebz.students.controller
 
+import com.bebz.students.feignclients.Grade
 import com.bebz.students.model.Student
 import com.bebz.students.service.StudentService
 import org.springframework.http.ResponseEntity
@@ -31,5 +32,12 @@ class StudentController(private val studentService: StudentService) {
     fun deleteStudent(@PathVariable id: Long): ResponseEntity<Void> {
         studentService.deleteById(id)
         return ResponseEntity.noContent().build()
+    }
+
+    // Nuevo endpoint para obtener un estudiante con sus notas
+    @GetMapping("/{id}/with-grades")
+    fun getStudentWithGrades(@PathVariable id: Long): ResponseEntity<Pair<Student, List<Grade>>> {
+        val studentWithGrades = studentService.getStudentWithGrades(id) ?: return ResponseEntity.notFound().build()
+        return ResponseEntity.ok(studentWithGrades)
     }
 }

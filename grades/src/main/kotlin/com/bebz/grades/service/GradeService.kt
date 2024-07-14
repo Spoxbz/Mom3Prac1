@@ -14,4 +14,6 @@ class GradeService(private val gradeRepository: GradeRepository) {
     fun save(grade: Grade): Grade = gradeRepository.save(grade)
 
     fun deleteById(id: Long) = gradeRepository.deleteById(id)
+    // Añadido para comunicar con students
+    /*fun findByStudentId(studentId: Long): List<Grade> = gradeRepository.findByStudentId(studentId)*/
 }
